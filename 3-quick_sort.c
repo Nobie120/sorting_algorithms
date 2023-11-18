@@ -10,19 +10,26 @@
  * Return:The lb of the resulting partition
  */
 
-size_t lumoto_partitionnt (int *array, size_t size, size_t lb, size_t ub)
+size_t lumoto_partition (int *array, size_t size, ssize_t lb, ssize_t ub)
 {
-	int i, j, pivot = ub, temp;
+	int i, j, pivot = array[ub], temp;
 
 	for (i = j = lb; j < ub; j++)
 	{
-		temp = array[j];
-		array[j] = array[i++];
-		array[i++] = temp;
+		if (array[j] < pivot)
+		{
+			temp = array[i];
+			array[i++] = array[j];
+			array[j] = temp;
+			print_array(array, size);
+		}
 	}
 	temp = array[i];
 	array[i] = array[ub];
-	array[i] = temp;
+	array[ub] = temp;
+	print_array(array, size);
+
+	return (i);
 }
 
 /**
@@ -33,13 +40,13 @@ size_t lumoto_partitionnt (int *array, size_t size, size_t lb, size_t ub)
  * @up:the end of a partition
  */
 
-void quicksort(int *array, size_t size, size_t lb, size_t ub)
+void quicksort(int *array, size_t size, ssize_t lb, ssize_t ub)
 {
 	if (lb < ub)
 	{
-		size_t p = partion(array, size, lb, ub);
+		size_t p = lumoto_partition(array, size, lb, ub);
 
-		quicksort(array, size, lo, p - 1);
+		quicksort(array, size, lb, p - 1);
 		quicksort(array, size, p + 1, ub);
 	}
 }

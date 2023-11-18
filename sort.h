@@ -26,7 +26,7 @@ void insertion_sort_list(listint_t **list);
 void bubble_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void quicksort(int *array, size_t size, size_t lb, size_t ub);
-size_t lumoto_partitionnt (int *array, size_t size, size_t lb, size_t ub);
+void quicksort(int *array, size_t size, ssize_t lb, ssize_t ub);
+size_t lumoto_partitiont (int *array, size_t size, ssize_t lb, ssize_t ub);
 
 #endif
