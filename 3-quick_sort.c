@@ -10,7 +10,7 @@
  * Return:The lb of the resulting partition
  */
 
-size_t lumoto_partition (int *array, size_t size, ssize_t lb, ssize_t ub)
+size_t lumoto_partition(int *array, size_t size, ssize_t lb, ssize_t ub)
 {
 	int i, j, pivot = array[ub], temp;
 
@@ -36,7 +36,7 @@ size_t lumoto_partition (int *array, size_t size, ssize_t lb, ssize_t ub)
  * @array:the array to be sorted
  * @size:the size of the array
  * @lb:the start of a partiton
- * @up:the end of a partition
+ * @ub:the end of a partition
  */
 
 void quicksort(int *array, size_t size, ssize_t lb, ssize_t ub)
