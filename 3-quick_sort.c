@@ -1,6 +1,26 @@
 #include "sort.h"
 
 /**
+ * swap - swaps two numbers in array
+ * @size:the size of an array
+ * @a:the first number to swap
+ * @b:the second number to swap
+ * @array:The array
+ */
+
+void swap_2(int *array, size_t size, int *a, int *b)
+{
+	if (*a != *b)
+	{
+		*a = *a + *b;
+		*b = *a - *b;
+		*a = *a - *b;
+		print_array(array, size);
+	}
+
+}
+
+/**
  * lumoto_partition - partition an array into subaray
  * @lb:start of the partition to be partioned
  * @ub:end of the partition
@@ -12,21 +32,12 @@
 
 size_t lumoto_partition(int *array, size_t size, ssize_t lb, ssize_t ub)
 {
-	int i, j, pivot = array[ub], temp;
+	int i, j, pivot = array[ub];
 
 	for (i = j = lb; j < ub; j++)
-	{
 		if (array[j] < pivot)
-		{
-			temp = array[i];
-			array[i++] = array[j];
-			array[j] = temp;
-			print_array(array, size);
-		}
-	}
-	temp = array[i];
-	array[i] = array[ub];
-	array[ub] = temp;
+			swap_2(array, size, &array[j], &array[i++]);
+	swap_2(array, size, &array[i], &array[ub]);
 
 	return (i);
 }

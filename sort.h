@@ -28,5 +28,6 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void quicksort(int *array, size_t size, ssize_t lb, ssize_t ub);
 size_t lumoto_partitiont (int *array, size_t size, ssize_t lb, ssize_t ub);
+void swap_2(int *array, size_t size, int *a, int *b);
 
 #endif
