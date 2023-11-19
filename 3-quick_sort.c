@@ -21,6 +21,7 @@ size_t lumoto_partition(int *array, size_t size, ssize_t lb, ssize_t ub)
 			temp = array[i];
 			array[i++] = array[j];
 			array[j] = temp;
+			print_array(array, size);
 		}
 	}
 	temp = array[i];
